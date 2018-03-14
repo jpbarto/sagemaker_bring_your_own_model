@@ -1,0 +1,8 @@
+{
+    "test_data":"/opt/ml/input/data/train/test_data.csv",
+    "train_data":"/opt/ml/input/data/train/train_data.csv",
+    "model_type": "wide",
+    "train_epochs": 10,
+    "epochs_per_eval": 2,
+    "batch_size": 40
+}
