@@ -69,7 +69,7 @@ $ ./train_local sagemaker_model:v1
 
 1.  With your model trained, now host the model for execution and ensure
     that it makes accurate predictions. Open a second terminal and from
-    the `test_dir` directory execute `serve_local.sh` to host the model
+    the `local_test` directory execute `serve_local.sh` to host the model
     as SageMaker would.
 ```bash
 $ ./serve_local.sh sagemaker_model:v1
@@ -89,7 +89,7 @@ $ cat payload-labels.csv
     repository.
 
 1. Now push the container image to ECR using the `build_and_push.sh`
-    script.
+    script.  The script will create an EC2 Container Registry repository and push your image to the repository.  It will print the output repository to the screen (for example `776347499999.dkr.ecr.eu-west-1.amazonaws.com/sagemaker_model`).
 ```bash
 $ ./build_and_push.sh sagemaker_model:v1
 ```
