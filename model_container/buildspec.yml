@@ -25,8 +25,8 @@ phases:
       - echo Pushing the Docker image...
       - docker push ${ECR_IMAGE_TAG}
       - echo Updating the training parameters specification
-      - sed -i -e "s/TRAINING_JOB_NAME/${IMAGE_REPO_NAME}-${MODEL_COMMIT_ID}/" training_job_parameters.json
-      - sed -i -e "s/MODEL_IMAGE/${ECR_IMAGE_TAG}/" training_job_parameters.json
+      - export TRAINING_JOB_NAME=`echo ${IMAGE_REPO_NAME}-${MODEL_COMMIT_ID} | sed -e 's/_/-/g'`
       - sed -i -e "s/MODEL_COMMIT_ID/${MODEL_COMMIT_ID}/" training_job_parameters.json
+      - sed -i -e "s/TRAINING_JOB_NAME/${TRAINING_JOB_NAME}/" training_job_parameters.json
       - echo Sending training job to SageMaker
-      - aws sagemaker create-training-job --cli-input-json file://training_job_parameters.json
+      - aws sagemaker create-training-job --algorithm-specification TrainingImage="${ECR_IMAGE_TAG}",TrainingInputMode=File --cli-input-json file://training_job_parameters.json

@@ -8,10 +8,6 @@
         "epochs_per_eval": "2",
         "batch_size": "40"
     },
-    "AlgorithmSpecification": {
-        "TrainingImage": "MODEL_IMAGE",
-        "TrainingInputMode": "File"
-    },
     "RoleArn": "YOUR_TRAINING_ROLE_ARN",
     "InputDataConfig": [
         {
