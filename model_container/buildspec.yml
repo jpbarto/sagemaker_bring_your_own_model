@@ -28,3 +28,5 @@ phases:
       - sed -i -e "s/TRAINING_JOB_NAME/${IMAGE_REPO_NAME}-${MODEL_COMMIT_ID}/" training_job_parameters.json
       - sed -i -e "s/MODEL_IMAGE/${ECR_IMAGE_TAG}/" training_job_parameters.json
       - sed -i -e "s/MODEL_COMMIT_ID/${MODEL_COMMIT_ID}/" training_job_parameters.json
+      - echo Sending training job to SageMaker
+      - aws sagemaker create-training-job --cli-input-json file://training_job_parameters.json

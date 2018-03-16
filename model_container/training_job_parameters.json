@@ -1,0 +1,48 @@
+{
+    "TrainingJobName": "TRAINING_JOB_NAME",
+    "HyperParameters": {
+        "test_data": "/opt/ml/input/data/training/test_data.csv",
+        "train_data": "/opt/ml/input/data/training/train_data.csv",
+        "model_type": "wide",
+        "train_epochs": "10",
+        "epochs_per_eval": "2",
+        "batch_size": "40"
+    },
+    "AlgorithmSpecification": {
+        "TrainingImage": "MODEL_IMAGE",
+        "TrainingInputMode": "File"
+    },
+    "RoleArn": "YOUR_TRAINING_ROLE_ARN",
+    "InputDataConfig": [
+        {
+            "ChannelName": "training",
+            "DataSource": {
+                "S3DataSource": {
+                    "S3DataType": "S3Prefix",
+                    "S3Uri": "s3://YOUR_TRAINING_BUCKET/TRAINING_DATA_KEY_PREFIX",
+                    "S3DataDistributionType": "ShardedByS3Key"
+                }
+            },
+            "ContentType": "",
+            "CompressionType": "None",
+            "RecordWrapperType": "None"
+        }
+    ],
+    "OutputDataConfig": {
+        "S3OutputPath": "s3://YOUR_TRAINING_BUCKET/output"
+    },
+    "ResourceConfig": {
+        "InstanceType": "ml.m4.xlarge",
+        "InstanceCount": 1,
+        "VolumeSizeInGB": 10
+    },
+    "StoppingCondition": {
+        "MaxRuntimeInSeconds": 3600
+    },
+    "Tags": [
+        {
+            "Key": "model_rev",
+            "Value": "MODEL_COMMIT_ID"
+        }
+    ]
+}
