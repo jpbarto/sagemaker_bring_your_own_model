@@ -134,6 +134,9 @@ $ git push
 2. Click `Review policy`
 
 2. Name the policy ‘MLBuildPolicy’ and click `Create policy`
+1. Click `Attach policy`
+1. Search for `AmazonSageMakerFullAccess` and click the box next to the policy
+1. Click `Attach policy`
 1. Open the AWS CodePipeline web console
 1. Click the link for your pipeline
 1. Click `Release change`
