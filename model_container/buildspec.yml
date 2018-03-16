@@ -24,3 +24,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push ${ECR_IMAGE_TAG}
+      - echo Updating the training parameters specification
+      - sed -i -e "s/TRAINING_JOB_NAME/${IMAGE_REPO_NAME}-${MODEL_COMMIT_ID}/" training_job_parameters.json
+      - sed -i -e "s/MODEL_IMAGE/${ECR_IMAGE_TAG}/" training_job_parameters.json
+      - sed -i -e "s/MODEL_COMMIT_ID/${MODEL_COMMIT_ID}/" training_job_parameters.json

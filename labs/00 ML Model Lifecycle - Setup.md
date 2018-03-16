@@ -25,6 +25,10 @@ materials.
 1. For **Service** enter `KMS`
 1. For **Action** click `All KMS actions`
 1. For **Resources** click `All resources`
+1. Click `Add additional permissions`
+1. For **Service** enter `CodeCommit`
+1. For **Action** click `All CodeCommit actions`
+1. For **Resources** click `All resources`
 1. Click `Review policy`
 1. Give the new policy a name and click `Create policy`
 1.  Return to the SageMaker console and accept the remaining defaults by
