@@ -69,5 +69,5 @@ $ aws s3api get-object --bucket YOUR-BUCKET-NAME --key 'train/train_data.csv' s3
     using the same get-object command but with the ‘—version-id’
     parameter to specify.
 ```bash
-$ aws s3api get-object --bucket YOUR-BUCKET-NAME --key '/train/train_data.csv' --version-id OLDER-VERSION-ID s3_old_train_data.csv
+$ aws s3api get-object --bucket YOUR-BUCKET-NAME --key 'train/train_data.csv' --version-id OLDER-VERSION-ID s3_old_train_data.csv
 ```
