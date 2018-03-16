@@ -43,17 +43,21 @@ $ cd YOUR-REPO-NAME
 
 ```bash
 $ cp -R ~/SageMaker/sagemaker_model_lifecycle/model_container/* .
+```
+6. Edit the `buildspec.yml` file to set the value of `IMAGE_REPO_NAME` to your container name.
+7. Edit the `training_job_parameters.json` to set the values of `RoleArn`, `S3Uri`, `S3OutputPath` to point to the S3 bucket you created and the Role ARN created earlier for use with SageMaker.  When you're finished editing `buildspec.yml` and `training_job_parameters.json` commit your changes to CodeCommit.
+```bash
 $ git add *
 $ git commit -am ‘initial commit’
 $ git push
 ```
 
-6.  Refresh the repository console in your web browser to see your files
+8.  Refresh the repository console in your web browser to see your files
     commited to the repository.
 
 ### Create a CodePipeline project
 
-7.  Open the CodePipeline console via the AWS console and click `Get started`
+9.  Open the CodePipeline console via the AWS console and click `Get started`
 
 2.  Enter a pipeline name and click `Next`
 
@@ -132,20 +136,4 @@ $ git push
 2. Name the policy ‘ECRAccessPolicy’ and click `Create policy`
 1. Open the AWS CodePipeline web console
 1. Click the link for your pipeline
-1. Click `Edit` to add an additional step to the pipeline
-1. Towards the bottom of the graph click `+ Stage`
-1. For **Stage name** enter `Train`
-1. Click `+ Action` and for **Action category** select `Build` from the dropdown
-1. For **Action name* enter `TrainOnSageMaker`
-1. And for **Build provider** select `AWS CodeBuild`
-1. Click `Create a new build project` and give the project a name
-1. For the **Operating system** select `Ubuntu` and `Base` for the **Runtime**
-1. Select `Insert build commands`
-1. For **Build command** enter the following:
-
-`aws sagemaker create-training-job --cli-input-json file://training_job_parameters.json`
-
-48. For **Output file** enter `output.txt`
-48. For **AWS CodeBuild service role** click `Choose an existing service role` and for **Role name** select from the drop down the role created for the previous build task
-1. Click `Save build project`
-49. Click `Release change`
+1. Click `Release change`
