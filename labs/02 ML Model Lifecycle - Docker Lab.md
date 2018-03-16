@@ -62,7 +62,7 @@ $ cat local_test/test_dir/input/config/hyperparameters.json
     directory and execute `train_local.sh`.
 ```bash
 $ cd local_test
-$ ./train_local sagemaker_model:v1
+$ ./train_local.sh sagemaker_model:v1
 ```
 
 7.  The `train_local.sh` script will run your Docker container in the same way as SageMaker would, mapping the test\_dir sub-directories to `/opt/ml` within your container. Your model then reads these inputs, trains on the training data, and produces an output model that can be used on later invocations of the container. After training a model export file should reside in `test_dir/model`.
