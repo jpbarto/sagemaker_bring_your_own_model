@@ -131,9 +131,14 @@ $ git push
 2. For **Resources** click `Specific` and click `Add ARN`, copy and paste
     from the ECR console the ARN of the repository created earlier.
 
+1. Click `Add additional permissions`
+1. For **Service** enter `SageMaker`
+1. For **Actions** expand **Write** and click `CreateTrainingJob`
+1. For **Resources** select `All resources`
+
 2. Click `Review policy`
 
-2. Name the policy ‘ECRAccessPolicy’ and click `Create policy`
+2. Name the policy ‘MLBuildPolicy’ and click `Create policy`
 1. Open the AWS CodePipeline web console
 1. Click the link for your pipeline
 1. Click `Release change`
