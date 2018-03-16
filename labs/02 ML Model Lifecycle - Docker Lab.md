@@ -91,5 +91,5 @@ $ cat payload-labels.csv
 1. Now push the container image to ECR using the `build_and_push.sh`
     script.  The script will create an EC2 Container Registry repository and push your image to the repository.  It will print the output repository to the screen (for example `776347499999.dkr.ecr.eu-west-1.amazonaws.com/sagemaker_model`).
 ```bash
-$ ./build_and_push.sh sagemaker_model:v1
+$ ../build_and_push.sh sagemaker_model
 ```
