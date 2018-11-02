@@ -1,4 +1,4 @@
-# sagemaker_model_lifecycle
+# Amazon SageMaker - Bring Your Own Model
 A collection of labs to demonstrate how to package, train, and deploy a model using Amazon SageMaker
 
 This example shows how to package an algorithm for use with SageMaker.
